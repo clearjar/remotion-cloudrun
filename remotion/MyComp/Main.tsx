@@ -2,7 +2,6 @@ import { z } from "zod";
 import {
   AbsoluteFill,
   Audio,
-  staticFile,
   Video,
 } from "remotion";
 import { CompositionProps } from "../../types/constants";
