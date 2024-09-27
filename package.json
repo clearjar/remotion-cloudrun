@@ -36,8 +36,7 @@
     "lint": "eslint .",
     "remotion": "remotion studio --public-dir ./public",
     "render": "remotion render",
-    "deploy": "node deploy.mjs",
-    "deploy-cloudrun": "npx remotion cloudrun services deploy",
-    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=https://remotion-test-render.clearjar.co"
+    "render:cloud": "npx remotion cloudrun render testing-remotion MyComp --service-name=remotion-4-0-213-mem2gi-cpu1-0-t300",
+    "deploy": "npx remotion cloudrun services deploy"
   }
 }
