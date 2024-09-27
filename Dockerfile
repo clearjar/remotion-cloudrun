@@ -23,7 +23,7 @@ WORKDIR /app
 COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
@@ -38,4 +38,4 @@ RUN npx remotion browser ensure
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["npx", "remotion studio"]
+CMD ["npm", "start"]
