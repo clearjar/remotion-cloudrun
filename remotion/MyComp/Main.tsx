@@ -1,63 +1,47 @@
 import { z } from "zod";
 import {
   AbsoluteFill,
-  Sequence,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
+  Audio,
+  staticFile,
+  Video,
 } from "remotion";
 import { CompositionProps } from "../../types/constants";
-import { NextLogo } from "./NextLogo";
-import { loadFont, fontFamily } from "@remotion/google-fonts/Inter";
-import React, { useMemo } from "react";
-import { Rings } from "./Rings";
-import { TextFade } from "./TextFade";
+import { loadFont } from "@remotion/google-fonts/Inter";
+import React from "react";
+import { WordDisplay } from "../word-display";
 
 loadFont();
 
-const container: React.CSSProperties = {
-  backgroundColor: "white",
-};
-
-const logo: React.CSSProperties = {
-  justifyContent: "center",
-  alignItems: "center",
-};
 
 export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
-  const transitionStart = 2 * fps;
-  const transitionDuration = 1 * fps;
 
-  const logoOut = spring({
-    fps,
-    frame,
-    config: {
-      damping: 200,
-    },
-    durationInFrames: transitionDuration,
-    delay: transitionStart,
-  });
-
-  const titleStyle: React.CSSProperties = useMemo(() => {
-    return { fontFamily, fontSize: 70 };
-  }, []);
 
   return (
-    <AbsoluteFill style={container}>
-      <Sequence durationInFrames={transitionStart + transitionDuration}>
-        <Rings outProgress={logoOut}></Rings>
-        <AbsoluteFill style={logo}>
-          <NextLogo outProgress={logoOut}></NextLogo>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={transitionStart + transitionDuration / 2}>
-        <TextFade>
-          <h1 style={titleStyle}>{title}</h1>
-        </TextFade>
-      </Sequence>
+    <AbsoluteFill
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: 100,
+        // backgroundColor: "white",
+      }}
+    >
+      <Audio src={staticFile("audio.mp3")} />
+      <Video
+        height={1280}
+        width={720}
+        // Fit to fill
+        style={{
+          objectFit: "cover",
+          position: "absolute",
+          zIndex: -1,
+        }}
+
+        src={staticFile("vid.mp4")}
+        volume={0}
+      />
+      <WordDisplay />
+
     </AbsoluteFill>
   );
 };

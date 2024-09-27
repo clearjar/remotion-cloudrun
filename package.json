@@ -34,10 +34,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "remotion": "remotion studio",
+    "remotion": "remotion studio --public-dir ./public",
     "render": "remotion render",
     "deploy": "node deploy.mjs",
     "deploy-cloudrun": "npx remotion cloudrun services deploy",
-    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=http://remotion-test-render.clearjar.co/"
+    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=https://remotion-test-render.clearjar.co"
   }
 }
