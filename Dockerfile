@@ -1,7 +1,7 @@
 FROM node:20-bookworm
+
 # Install Chrome dependencies
-RUN apt-get update
-RUN apt install -y \
+RUN apt-get update && apt-get install -y \
   libnss3 \
   libdbus-1-3 \
   libatk1.0-0 \
@@ -13,14 +13,29 @@ RUN apt install -y \
   libxcomposite1 \
   libxdamage1 \
   libatk-bridge2.0-0 \
-  libcups2
-# Copy everything from your project to the Docker image. Adjust if needed.
-COPY package.json package*.json yarn.lock* pnpm-lock.yaml* bun.lockb* tsconfig.json* remotion.config.* ./
-COPY src ./src
-# If you have a public folder:
-COPY public ./public
-# Install the right package manager and dependencies - see below for Yarn/PNPM
-RUN npm i
-# Install Chrome
+  libcups2 \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and other configuration files
+COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the Next.js application
+RUN npm run build
+
+# Install Chrome for Remotion
 RUN npx remotion browser ensure
+
+# Expose the port Next.js runs on
+EXPOSE 3000
+
+# Start the Next.js application
 CMD ["npx", "remotion studio"]
