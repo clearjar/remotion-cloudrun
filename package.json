@@ -5,6 +5,7 @@
   "dependencies": {
     "@remotion/bundler": "4.0.213",
     "@remotion/cli": "4.0.213",
+    "@remotion/cloudrun": "4.0.213",
     "@remotion/google-fonts": "4.0.213",
     "@remotion/lambda": "4.0.213",
     "@remotion/paths": "4.0.213",
@@ -35,7 +36,8 @@
     "lint": "eslint .",
     "remotion": "remotion studio",
     "render": "remotion render",
-    "deploy": "node deploy.mjs"
-  },
-  "packageManager": "npm@10.7.0"
+    "deploy": "node deploy.mjs",
+    "deploy-cloudrun": "npx remotion cloudrun services deploy",
+    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=https://remotion-4-0-213-mem2gi-cpu1-0-t300-77ykfp6h3q-ue.a.run.app"
+  }
 }
