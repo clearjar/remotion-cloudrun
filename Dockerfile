@@ -19,23 +19,23 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and other configuration files
-COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies using Yarn
+RUN yarn install --frozen-lockfile
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the Next.js application
-RUN npm run build
+RUN yarn build
 
 # Install Chrome for Remotion
-RUN npx remotion browser ensure
+RUN yarn remotion browser ensure
 
 # Expose the port Next.js runs on
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["npm", "run", "remotion"]
+CMD ["yarn", "remotion"]
