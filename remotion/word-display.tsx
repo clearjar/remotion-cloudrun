@@ -34,12 +34,12 @@ export const WordDisplay = () => {
         color: 'white',
         fontSize: 70,
         fontWeight: 900,
-        textShadow:
-          '-4px -4px 0 #000, ' +
-          '4px -4px 0 #000, ' +
-          '-4px 4px 0 #000, ' +
-          '4px 4px 0 #000, ' +
-          '0 0 8px rgba(0,0,0,0.7)',
+        // textShadow:
+        //   '-4px -4px 0 #000, ' +
+        //   '4px -4px 0 #000, ' +
+        //   '-4px 4px 0 #000, ' +
+        //   '4px 4px 0 #000, ' +
+        //   '0 0 8px rgba(0,0,0,0.7)',
         fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif',
         WebkitTextStroke: '2px black',
         paintOrder: 'stroke fill',

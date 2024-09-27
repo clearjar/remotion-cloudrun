@@ -26,7 +26,7 @@ const container: React.CSSProperties = {
 const outer: React.CSSProperties = {
   borderRadius: "var(--geist-border-radius)",
   overflow: "hidden",
-  boxShadow: "0 0 200px rgba(0, 0, 0, 0.15)",
+  // boxShadow: "0 0 200px rgba(0, 0, 0, 0.15)",
   marginBottom: 40,
   marginTop: 60,
 };

@@ -22,7 +22,7 @@ const RadialGradient: React.FC<{
           borderRadius: "50%",
           backgroundColor: color,
           position: "absolute",
-          boxShadow: "0 0 100px rgba(0, 0, 0, 0.05)",
+          // boxShadow: "0 0 100px rgba(0, 0, 0, 0.05)",
         }}
       ></div>
     </AbsoluteFill>

@@ -36,7 +36,11 @@
     "lint": "eslint .",
     "remotion": "remotion studio --public-dir ./public",
     "render": "remotion render",
-    "render:cloud": "npx remotion cloudrun render testing-remotion MyComp --service-name=remotion-4-0-213-mem2gi-cpu1-0-t300",
-    "deploy": "npx remotion cloudrun services deploy"
+    "render:lambda": "npx remotion lambda render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --concurrency=100%",
+    "render:cloudrun": "npx remotion cloudrun render testing-remotion MyComp --service-name=remotion-4-0-213-mem2gi-cpu1-0-t300 --concurrency=100%",
+    "deploy:cloudrun": "npx remotion cloudrun services deploy",
+    "deploy:lambda": "npx remotion lambda functions deploy",
+    "deploy:cloudrun-site": "npx remotion cloudrun sites create src/index.ts --site-name=testing-remotion",
+    "deploy:lambda-site": "npx remotion lambda sites create src/index.ts --site-name=testing-remotion"
   }
 }
