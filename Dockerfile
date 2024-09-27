@@ -38,4 +38,4 @@ RUN yarn remotion browser ensure
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["yarn", "remotion"]
+CMD ["npx", "remotion", "studio"]
