@@ -38,6 +38,6 @@
     "render": "remotion render",
     "deploy": "node deploy.mjs",
     "deploy-cloudrun": "npx remotion cloudrun services deploy",
-    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=https://remotion-4-0-213-mem2gi-cpu1-0-t300-77ykfp6h3q-ue.a.run.app"
+    "render-cloudrun": "npx remotion cloudrun render https://storage.googleapis.com/remotioncloudrun-6gvfiaym8o/sites/testing-remotion/index.html MyComp --cloud-run-url=http://remotion-test-render.clearjar.co/"
   }
 }
