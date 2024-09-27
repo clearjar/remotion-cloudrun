@@ -38,4 +38,4 @@ RUN npx remotion browser ensure
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["npm", "start"]
+CMD ["npm", "run", "remotion"]
